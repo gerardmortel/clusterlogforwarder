@@ -1,11 +1,11 @@
-# Install IBM Operational Decision Manager via helm
-[https://github.com/gerardmortel/clusterlogforwader](https://github.com/gerardmortel/clusterlogforwarder)
+# Install an OpenShift Cluster Log Forwarder
+[https://github.com/gerardmortel/clusterlogforwarder](https://github.com/gerardmortel/clusterlogforwarder)
 
 # Resources used to create this
-
+[Installing Logging via CLI](https://docs.openshift.com/container-platform/4.12/logging/cluster-logging-deploying.html)
 
 # Purpose
-The purpose of this repo is to install a Cluster Log Forwarder
+The purpose of this repo is to install an OpenShift Cluster Log Forwarder
 
 # Prerequisites
 1. OpenShift 4.12+ cluster on Fyre
