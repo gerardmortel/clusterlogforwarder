@@ -1,0 +1,23 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: elasticsearch-data-quickstart-es-default-0-pv
+  annotations:
+    pv.kubernetes.io/provisioned-by: cp4ba/nfs-client
+  finalizers:
+    - kubernetes.io/pv-protection
+spec:
+  capacity:
+    storage: 5Gi
+  nfs:
+    server: 10.17.33.33
+    path: /root/data/nfsshare/elasticsearch/elasticsearch-data-quickstart-es-default-0
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: default
+    name: elasticsearch-data-quickstart-es-default-0
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-managed-storage
+  volumeMode: Filesystem

@@ -6,4 +6,5 @@ export NS="custom-log-forwarding"
 export STORAGECLASS="nfs-managed-storage" # Fyre NFS Storage
 
 # Lower priority variables
+export SERVICEACCOUNTNAME="cp4balogforwarder"
 
