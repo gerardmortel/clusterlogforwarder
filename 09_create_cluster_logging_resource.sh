@@ -4,7 +4,10 @@
 
 echo "#### 7. Create a ClusterLogging custom resource (CR):"
 echo "#### 8. Apply the ClusterLogging custom resource (CR) by running the following command:"
-cat <<EOF | oc apply -f -
+echo "#### Extra 8. If ClusterLogging creation fails, wait 10 seconds then try again."
+while [ true ]
+do
+  cat <<EOF | oc apply -f -
 apiVersion: logging.openshift.io/v1
 kind: ClusterLogging
 metadata:
@@ -47,3 +50,12 @@ spec:
       type: fluentd  
       fluentd: {}
 EOF
+  if [ $? -eq 0 ]; then
+    echo "#### Creating Cluster Logging instance command succeeded.  Exiting while loop"
+    break
+  else
+    echo "#### Creating Cluster Logging instance command failed."
+    echo "#### Sleeping for 10 seconds then trying again."
+    sleep 10
+  fi
+done
