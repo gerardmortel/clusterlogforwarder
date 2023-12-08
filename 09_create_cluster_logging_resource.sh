@@ -47,8 +47,7 @@ spec:
       replicas: 1
   collection:
     logs:
-      type: fluentd  
-      fluentd: {}
+      type: vector  
 EOF
   if [ $? -eq 0 ]; then
     echo "#### Creating Cluster Logging instance command succeeded.  Exiting while loop"
