@@ -4,4 +4,8 @@
 
 echo "#### Extra 1. Create a service account for the collector. If you want to write logs to storage that requires a token for"
 echo "#### authentication, you must include a token in the service account."
-oc create serviceaccount ${SERVICEACCOUNTNAME}
+oc create serviceaccount ${SERVICEACCOUNTNAME} -n ${NS}
+
+echo "#### Add collect-application-logs role to ${SERVICEACCOUNTNAME}"
+oc adm policy add-cluster-role-to-user \
+collect-application-logs system:serviceaccount:${NS}:${SERVICEACCOUNTNAME}
